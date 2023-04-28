@@ -1,0 +1,52 @@
+SEED: "20210617"
+NUM_GPUS: 4
+NUM_WORKERS: 6
+SESSION: 'base'
+LOG_NAME: 'config.txt'
+OUTPUT_DIR: '/nfs/joltik/data/ssd/xiziwang/TalkNet_models/'  # savePath
+evalDataType: "val"
+downloadAVA: False
+evaluation: False
+RESUME: False
+RESUME_PATH: ""
+RESUME_EPOCH: 0
+
+DATA:
+    dataPathAVA: '/nfs/jolteon/data/ssd/xiziwang/AVA_dataset/'
+
+DATALOADER:
+    nDataLoaderThread: 4
+    
+
+SOLVER:
+    OPTIMIZER: "adam"
+    BASE_LR: 5e-5
+    SCHEDULER:
+        NAME: "multistep"
+        GAMMA: 0.95
+
+MODEL:
+    NUM_SPEAKERS: 3
+    CLIP_LENGTH: 200
+    AV: "speaker_temporal"
+    AV_layers: 3
+    ADJUST_ATTENTION: 0
+
+TRAIN:
+    BATCH_SIZE: 1
+    MAX_EPOCH: 25
+    AUDIO_AUG: 1 
+    TEST_INTERVAL: 1
+    TRAINER_GPU: 4
+
+
+VAL:
+    BATCH_SIZE: 1
+
+TEST:
+    BATCH_SIZE: 1
+    DATASET: 'seen'
+    MODEL: 'unseen'
+
+    
+

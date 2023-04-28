@@ -1,0 +1,32 @@
+a_int: 12
+a_float: 1e-2
+a_list: [0,1,2]
+eval_list: eval(list(range(10)))
+DATA:
+  PATH_TO_DATA_DIR: /home/ubuntu/data/kinetics/Mini-Kinetics-200
+  PATH_PREFIX: /home/ubuntu/data/kinetics/k400_ver3
+  NUM_FRAMES: 16
+  SAMPLING_RATE: 8
+  TARGET_FPS: 25
+  TRAIN_JITTER_SCALES: [256, 320]
+  TRAIN_CROP_SIZE: 224
+  TEST_CROP_SIZE: 224
+  INPUT_CHANNEL_NUM: [3]
+SOLVER:
+  BACKBONE:
+    OPTIMIZER: sgd
+    MOMENTUM: 0.9
+    BASE_LR: 1e-3
+    SCHEDULER:
+      NAME: warmup_multistep
+      MILESTONES: [13, 24]
+      WARMUP_EPOCHS: 0.5
+      GAMMA: 0.1
+  TEMPORAL_MODEL:
+    OPTIMIZER: sgd
+    MOMENTUM: 0.9
+    BASE_LR: 1e-3
+    SCHEDULER:
+      NAME: multistep
+      MILESTONES: [13, 24]
+      GAMMA: 0.1
