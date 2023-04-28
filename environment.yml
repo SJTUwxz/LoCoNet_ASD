@@ -244,7 +244,7 @@ dependencies:
     - opencv-python==4.5.5.62
     - orjson==3.6.8
     - paramiko==2.11.0
-    - pillow==6.2.2
+    - pillow==8.3.2
     - pooch==1.6.0
     - portalocker==2.7.0
     - proglog==0.1.10
