@@ -23,7 +23,6 @@ CONFIG = EasyDict()
 
 BASE_CONFIG = {
     'OUTPUT_DIR': './workspace',
-    'SESSION': 'base',
     'NUM_GPUS': 1,
     'LOG_NAME': 'log.txt'
 }
@@ -105,6 +104,6 @@ def update_config(arg_parser, default_config=None):
 
 def create_workspace(cfg):
     cfg_name, ext = os.path.splitext(os.path.basename(cfg.cfg))
-    workspace = os.path.join(cfg.OUTPUT_DIR, cfg_name, cfg.SESSION)
+    workspace = os.path.join(cfg.OUTPUT_DIR)
     os.makedirs(workspace, exist_ok=True)
     cfg.WORKSPACE = workspace

@@ -6,10 +6,11 @@
 
 Start from building the environment
 ```
-conda create -n loconet python=3.7.9 anaconda
+conda env create -f requirements.yml
 conda activate loconet
-pip install -r requirements.yml
 ```
+export PYTHONPATH=**project_dir**/dlhammer:$PYTHONPATH
+and replace **project_dir** with your code base location
 
 
 
@@ -27,8 +28,9 @@ After AVA dataset is downloaded, please change the DATA.dataPathAVA entry in the
 
 #### Training script
 ```
-python -W ignore::UserWarning trainTalkNet_config.py --cfg configs/multi.yaml 
+python -W ignore::UserWarning trainTalkNet_config.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
 ```
+
 
 
 #### Pretrained model
