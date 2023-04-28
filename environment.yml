@@ -205,7 +205,6 @@ dependencies:
     - decorator==4.4.2
     - decord==0.6.0
     - einops==0.4.0
-    - epic-hand-object-detections==0.0.1
     - fastapi==0.78.0
     - ffmpeg==1.4
     - ffmpy==0.3.0
