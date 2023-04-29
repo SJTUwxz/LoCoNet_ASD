@@ -180,8 +180,7 @@ def main(gpu, world_size):
     while (1):
         loss, lr = s.train_network(epoch=epoch, loader=data.train_dataloader())
 
-        if "test" not in cfg.SESSION:
-            s.saveParameters(cfg.modelSavePath + "/model_%04d.model" % epoch)
+        s.saveParameters(cfg.modelSavePath + "/model_%04d.model" % epoch)
 
         if epoch >= cfg.TRAIN.MAX_EPOCH:
             quit()
