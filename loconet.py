@@ -5,18 +5,18 @@ import torch.nn.functional as F
 import sys, time, numpy, os, subprocess, pandas, tqdm
 
 from loss_multi import lossAV, lossA, lossV
-from model.talkNetModel import talkNetModel
+from model.loconet_encoder import locoencoder
 
 import torch.distributed as dist
 from xxlib.utils.distributed import all_gather, all_reduce
 
 
-class TalkNet(nn.Module):
+class Loconet(nn.Module):
 
     def __init__(self, cfg):
-        super(TalkNet, self).__init__()
+        super(Loconet, self).__init__()
         self.cfg = cfg
-        self.model = talkNetModel(cfg)
+        self.model = locoencoder(cfg)
         self.lossAV = lossAV()
         self.lossA = lossA()
         self.lossV = lossV()
@@ -48,17 +48,17 @@ class TalkNet(nn.Module):
         return nloss, prec, num_frames
 
 
-class talkNet(nn.Module):
+class loconet(nn.Module):
 
     def __init__(self, cfg, rank=None, device=None):
-        super(talkNet, self).__init__()
+        super(loconet, self).__init__()
         self.cfg = cfg
         self.rank = rank
         if rank != None:
             self.rank = rank
             self.device = device
 
-            self.model = TalkNet(cfg).to(device)
+            self.model = Loconet(cfg).to(device)
             self.model = nn.SyncBatchNorm.convert_sync_batchnorm(self.model)
             self.model = nn.parallel.DistributedDataParallel(self.model,
                                                              device_ids=[rank],
@@ -69,7 +69,7 @@ class talkNet(nn.Module):
                                                              step_size=1,
                                                              gamma=self.cfg.SOLVER.SCHEDULER.GAMMA)
         else:
-            self.model = talkNetModel(cfg).cuda()
+            self.model = locoencoder(cfg).cuda()
             self.lossAV = lossAV().cuda()
             self.lossA = lossA().cuda()
             self.lossV = lossV().cuda()

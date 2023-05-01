@@ -10,7 +10,7 @@ from xxlib.utils.distributed import all_gather, all_reduce
 from torch import nn
 from dataLoader_multiperson import train_loader, val_loader
 
-from talkNet_config_multi import talkNet
+from loconet import loconet
 
 
 class MyCollator(object):

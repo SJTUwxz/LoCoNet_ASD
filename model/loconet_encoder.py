@@ -8,10 +8,10 @@ from torchvggish import vggish
 from model.visualEncoder import visualFrontend, visualConv1D, visualTCN
 
 
-class talkNetModel(nn.Module):
+class locoencoder(nn.Module):
 
     def __init__(self, cfg):
-        super(talkNetModel, self).__init__()
+        super(locoencoder, self).__init__()
         self.cfg = cfg
         # Visual Temporal Encoder
         self.visualFrontend = visualFrontend(cfg)    # Visual Frontend

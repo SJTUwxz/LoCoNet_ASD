@@ -28,15 +28,13 @@ After AVA dataset is downloaded, please change the DATA.dataPathAVA entry in the
 
 #### Training script
 ```
-python -W ignore::UserWarning trainTalkNet_config.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
+python -W ignore::UserWarning train.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
 ```
 
 
 
 #### Pretrained model
-Our pretrained model performs `mAP: 95.1` in validation set, you can check it by using: 
-```
-python trainTalkNet.py --dataPathAVA AVADataPath --evaluation
+
 ```
 
 
@@ -44,14 +42,17 @@ python trainTalkNet.py --dataPathAVA AVADataPath --evaluation
 
 Please cite the following if our paper or code is helpful to your research.
 ```
-
+@article{wang2023loconet,
+  title={LoCoNet: Long-Short Context Network for Active Speaker Detection},
+  author={Wang, Xizi and Cheng, Feng and Bertasius, Gedas and Crandall, David},
+  journal={arXiv preprint arXiv:2301.08237},
+  year={2023}
+}
 ```
-I have summaried some potential [FAQs](https://github.com/TaoRuijie/TalkNet_ASD/blob/main/FAQ.md). You can also check the `issues` in Github for other questions that I have answered.
 
-This is my first open-source work, please let me know if I can future improve in this repositories or there is anything wrong in our work. Thanks for your support!
 
 ### Acknowledge
 
-
+The code base of this project is studied from [TalkNet](https://github.com/TaoRuijie/TalkNet-ASD) which is a very easy-to-use ASD pipeline.
 
 
