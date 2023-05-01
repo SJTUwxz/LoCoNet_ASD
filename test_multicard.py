@@ -4,7 +4,7 @@ from utils.tools import *
 from dlhammer import bootstrap
 
 from dataLoader_multiperson import val_loader
-from talkNet_config_multi import talkNet
+from loconet import loconet
 
 
 class DataPrep():
@@ -87,7 +87,7 @@ def main():
         preprocess_AVA(cfg)
         quit()
 
-    s = talkNet(cfg)
+    s = loconet(cfg)
 
     s.loadParameters(cfg.RESUME_PATH)
     mAP = s.evaluate_network(epoch=epoch, loader=data.val_dataloader())

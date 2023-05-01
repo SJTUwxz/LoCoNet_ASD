@@ -35,8 +35,11 @@ python -W ignore::UserWarning train.py --cfg configs/multi.yaml OUTPUT_DIR <outp
 
 #### Pretrained model
 
-```
+Please download the LoCoNet trained weights on AVA dataset [here](https://drive.google.com/file/d/1EX-V464jCD6S-wg68yGuAa-UcsMrw8mK/view?usp=sharing).
 
+```
+python -W ignore::UserWarning test_multicard.py --cfg configs/multi.yaml  RESUME_PATH {model download path}
+```
 
 ### Citation
 
