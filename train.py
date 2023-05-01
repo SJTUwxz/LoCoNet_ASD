@@ -171,11 +171,11 @@ def main(gpu, world_size):
     if len(modelfiles) >= 1:
         print("Model %s loaded from previous state!" % modelfiles[-1])
         epoch = int(os.path.splitext(os.path.basename(modelfiles[-1]))[0][6:]) + 1
-        s = talkNet(cfg, rank, device)
+        s = loconet(cfg, rank, device)
         s.loadParameters(modelfiles[-1])
     else:
         epoch = 1
-        s = talkNet(cfg, rank, device)
+        s = loconet(cfg, rank, device)
 
     while (1):
         loss, lr = s.train_network(epoch=epoch, loader=data.train_dataloader())

@@ -19,7 +19,7 @@ and replace **project_dir** with your code base location
 We follow TalkNet's data preparation script to download and prepare the AVA dataset.
 
 ```
-python trainTalkNet.py --dataPathAVA AVADataPath --download 
+python train.py --dataPathAVA AVADataPath --download 
 ```
 
 `AVADataPath` is the folder you want to save the AVA dataset and its preprocessing outputs, the details can be found in [here](https://github.com/TaoRuijie/TalkNet_ASD/blob/main/utils/tools.py#L34) . Please read them carefully.
